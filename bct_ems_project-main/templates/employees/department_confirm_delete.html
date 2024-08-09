@@ -1,0 +1,15 @@
+<!-- employees/templates/employees/department_confirm_delete.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Delete Department{% endblock %}
+
+{% block content %}
+<h2>Are you sure you want to delete the department "{{ department.name }}"?</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, delete</button>
+    <a href="{% url 'department_list' %}">No, go back</a>
+</form>
+{% endblock %}

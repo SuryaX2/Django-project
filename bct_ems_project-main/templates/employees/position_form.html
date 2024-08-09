@@ -1,0 +1,39 @@
+<!-- employees/templates/employees/position_form.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}{{ form.instance.pk|yesno:"Update Position,Add New Position" }}{% endblock %}
+
+{% block content %}
+<h2>{{ form.instance.pk|yesno:"Update Position,Add New Position" }}</h2>
+
+<form method="post">
+    {% csrf_token %}
+    
+    <!-- Render the 'title' field manually -->
+    <div class="form-group">
+        <label for="{{ form.title.id_for_label }}">{{ form.title.label }}</label>
+        {{ form.title }}
+        {% if form.title.errors %}
+            <div class="form-errors">
+                {{ form.title.errors }}
+            </div>
+        {% endif %}
+    </div>
+    
+    <!-- Render the 'department' field manually -->
+    <div class="form-group">
+        <label for="{{ form.department.id_for_label }}">{{ form.department.label }}</label>
+        {{ form.department }}
+        {% if form.department.errors %}
+            <div class="form-errors">
+                {{ form.department.errors }}
+            </div>
+        {% endif %}
+    </div>
+    
+    <button type="submit">Save</button>
+</form>
+
+<p><a href="{% url 'position_list' %}">Cancel</a></p>
+{% endblock %}

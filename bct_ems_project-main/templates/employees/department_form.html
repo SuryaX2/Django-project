@@ -1,0 +1,28 @@
+<!-- employees/templates/employees/department_form.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}{{ form.instance.pk|yesno:"Update Department,Add New Department" }}{% endblock %}
+
+{% block content %}
+<h2>{{ form.instance.pk|yesno:"Update Department,Add New Department" }}</h2>
+
+<form method="post">
+    {% csrf_token %}
+    
+    <!-- Name field -->
+    <div class="form-group">
+        <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+        {{ form.name }}
+        {% if form.name.errors %}
+            <div class="form-errors">
+                {{ form.name.errors }}
+            </div>
+        {% endif %}
+    </div>
+    
+    <button type="submit">Save</button>
+</form>
+
+<p><a href="{% url 'department_list' %}">Cancel</a></p>
+{% endblock %}
