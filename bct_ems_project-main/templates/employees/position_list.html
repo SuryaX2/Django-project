@@ -16,7 +16,7 @@
     <div class="card d-flex flex-row mx-3" style="width: 18rem; height: auto;">
         <div class="card-body d-flex flex-column">
             <h5 class="card-title"><u>{{ position.title }}</u></h5>
-            <p class="card-text">This is the department of {{ position.title }}</p>
+            <p class="card-text">This is the position of {{ position.title }}</p>
             <a href="{% url 'position_update' position.pk %}" class="btn btn-primary">Edit</a>
             <a href="{% url 'position_delete' position.pk %}" class="btn btn-danger">Delete</a>
         </div>
