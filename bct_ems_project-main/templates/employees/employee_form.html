@@ -15,7 +15,7 @@
 {% block title %}{{ form.instance.pk|yesno:"Update Employee,Add New Employee" }}{% endblock %}
 
 {% block content %}
-<h2 class="text-center fw-bold mb-4">{{ form.instance.pk|yesno:"Update Employee,Add New Employee" }}</h2>
+<h2 class="text-center fw-bold my-4">{{ form.instance.pk|yesno:"Update Employee,Add New Employee" }}</h2>
 
 <form method="post">
     {% csrf_token %}
@@ -82,7 +82,7 @@
 
     <div style="display: flex; justify-content: space-between;">
         <button type="submit" class="px-5 rounded-5">Save</button>
-        <p><a href="{% url 'employee_list' %}">Cancel</a></p>
+        <a class="btn btn-warning rounded-5 px-5 m-0" href="{% url 'employee_list' %}">Cancel</a>
     </div>
 </form>
 
